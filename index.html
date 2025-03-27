@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            JG: An enthusiastic UX UI designer trainee.
+        </title>
+        <meta name="description" content="A first attempt to develop a contact page"/>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+        "/>
+
+    </head>
+
+    <body>
+        <header>
+            <!-- ---------------- NAVIGATION MENU : 3 menu items ---------- -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#work">WORK</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- ----------------- WELCOME MESSAGE ----------------------- -->
+            <section id="home" class="welcome-container">
+                <p class="greeting">Hello there !</p>
+                <h1 class="heading">I'm Joséphine, an <span class="highlight">enthusiastic</span> UX UI Designer Trainee based in Brussels.</h1>
+                <p class="greeting">Nice to meet you !</p>
+            </section>
+
+            <!--First section : ABOUT (description, background AND contact)-->
+            <section id="about" class="about">
+                <div class="description">
+                  <h2>Who am I ? What do I do ?</h2>
+                    <p>
+                    After studying Bioengineering, I realised that I wanted to do something a little <span class="highlight">more creative</span> while retaining some technical skills. <br>
+                    The UX UI domain striked me as the perfect balance between my scientific expertise and creativity, combining digital innovation and user-centered design. <br>
+                    My previous experience has enabled me to sharpen my critical, analytical, and methodological <span class="highlight">thinking</span> in terms of problem resolutions. I enjoy a lot putting this at use when approching a UX case. It almost feels like solving a puzzle. However, it's the creative dimension through the UI Design that really excites me. <br>
+                    As someone who is sensitive to issues of <span class="highlight">accessibility and inclusiveness</span>, I look forward to the opportunity of being involved in projects that promote them.    
+                    As I'm still a novice, I'm very keen to learn.
+                    I'm meticulous and deeply commited to my learning.
+                   </p>
+                </div>
+                <div class="background">
+                  <p>
+                    I'm currently <span class="highlight">actively looking for a work placement</span>, so if you're looking for an intern, I'd love to hear from you. Here's my resume if you want to know more about my background !
+                  </p>
+                </div>
+                <div class="social-icons">
+                    <a id="resume" href="assets/pdf/resume.pdf" target="_blank">Resume</a>
+                </div>
+                <div class="contact">
+                    <h2 class="contact-title">Let's have a chat ?</h2>
+                <p class="contact-text">You may contact me through LinkedIn, Email or Mastodon :</p>
+
+                <!-- BUTTONS LINKING TO SOCIAL NETWORKS -->
+                <div class="social-icons">
+
+                    <!--Linked In-->
+                    <a class="linkedin" href="https://www.linkedin.com/in/jos%C3%A9phine-g-10a923335/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+
+                    <!--Email-->
+                    <a class="mail" href="mailto:josephineguichard@hotmail.fr"><i class="fa-solid fa-envelope"></i></a>
+
+                    <!--Mastodon-->
+                    <a class="mastodon" href="https://mastodon.social/@josephineguichard" target="_blank"><i class="fa-brands fa-mastodon"></i></a>
+                </div>
+                </div>
+            </section>
+
+            <!-- --------------- Second section : WORK ----------------- -->
+             <section id="work" class="work">
+                <h2 class="work-title">Check out my latest project :</h2>
+                <p class="work-text">
+                    Recently, I participated in a <span class="highlight">Hackathon</span> organized by the <a id="efp" href="https://www.efp.be/" target="_blank">efp</a> (a work-linked training centre in Brussels). <br>
+                    Many teams of UX UI Designers and Web Developers were put together with the main goal of delivering the MVP (Minimum Viable Product) of a website for an organization. <br>
+                    The company we worked for is 'Chateau de Verre', specialising in glass and stained glass work by two lovers of light. <br>
+                    At the  end of these three days, we wer really satisfied with our achievement and even won the best pitch award ! <br>
+                    The final result still needs a few imrpovements and content, but if you want you can get a preview by visiting the website directly :
+                </p>
+                <!-- Button linking to the Chateau de Verre website -->
+                <a class="social-icons" id="chateau-de-verre" href="https://castle-five.vercel.app/" target="_blank">Chateau de Verre</a>
+
+                <!-- Chateau de Verre images : 3 sneak peeks  -->
+                  <div class="chateau-de-verre-images">
+                    <!-- First image : Contact page -->
+                     <img class="cdvcontact" src="assets/images/cdvcontact.jpg" alt="Preview of the Chateau de Verre contact page" loading="lazy">
+                     <!-- Second image : Restaurations page -->
+                      <img class="cdvrestau" src="assets/images/cdvrestau.jpg" alt="Preview of the page dedicated to the ‘Restaurations’ (Restorations) section of the Chateau de Verre company website" loading="lazy">
+                      <!-- Third image : Renovations -->
+                       <img class="cdvreno" src="assets/images/cdvreno.jpg" alt="Preview of the page dedicated to the ‘Rénovations’ (Renovations) section of the Chateau de Verre company website" loading="lazy">
+                  </div>
+             </section>
+        </main>
+
+        <!-- -------------------------- FOOTER ---------------------------- -->
+         <footer>
+            <p class="footer-text">&copy; 2025 JG: An enthusiastic UX UI designer trainee.  All rights reserved. </p>
+         </footer>
+    </body>
+</html>

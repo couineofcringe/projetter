@@ -1,0 +1,333 @@
+/* ========= RESETTING SOME PROPERTIES (cross-browser differences) ========= */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: Lato, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* To set the default font size to 10px --> useful to work with REM UNITS(2rem <=> 20px) */
+    font-size: 62.5%;
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* ============ CREATING CSS VARIABLES (code, styles, maintenance) ======== */
+:root {
+    --heading-background-color: rgba(255, 255, 255, 0.25);
+   --text-color: #0a044f;
+   --text-highlight-color: rgba(219, 14, 219, 0.75);
+   --button-text-color: rgba(127, 0, 127, 0.95);
+   --button-bg-color: rgba(255, 255, 255, 0.2);
+   --button-hover-bg-color: rgba(255, 255, 255, 0.4);
+   --button-active-bg-color: rgba(255, 255, 255, 0.1);
+   --button-border-color: rgba(255, 255, 255, 0.3);
+   --button-boxshadow-color: rgba(0, 0, 0, 0.1);
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* =================== SETTING AND STYLING THE NAVBAR ================== */
+.navbar {
+    z-index: 1000; /*To make sure it's on top of everything : high value*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    font-size: 1.7rem;
+    border-bottom: 1px solid white;
+    backdrop-filter: blur(5px);
+}
+/* Placing the navbar elements */
+.navbar ul {
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly; 
+}
+/* Removing the default styling of the URLs */
+li a {
+    color: inherit;
+    text-decoration: none;
+}
+/* Styling the navbar interactions */
+.navbar li {
+    list-style-type: none;
+    color: var(--text-highlight-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    /*border: 1px solid transparent;*/
+    transition: background 0.3s ease;
+}
+.navbar li:hover {
+    background-color: var(--button-hover-bg-color);
+}
+.navbar li:active {
+    background: var(--button-active-bg-color);
+    transform: scale(0.95);
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* =================== SETTING AND STYLING THE BACKGROUND ================== */
+body {
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+    color: var(--text-color);
+    background: radial-gradient(
+        circle,
+        #e2f7bf,
+        #cbf0e3 30%,
+        #c6ecff 60%,
+        #f1d4e1 100%
+
+    );
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* ============ SETTING THE SIZE OF THE SECTIONS ELEMENTS : SWP ========== */
+section {
+    min-height: 100vh;
+    scroll-margin-top: 3rem;
+    
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* === Placing and styling the WELCOME MESSAGE (section element)  === */
+.welcome-container {
+    width: 80%;
+    /*margin: 2rem 0 3rem 0;*/
+    /*margin-top: 10rem;*/
+    padding: 1.5rem;
+    position: relative;
+    left: 10%;
+    background-color: var(--heading-background-color);
+    border-radius: 25px;
+    box-shadow: 0 4px 30px rgb(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    justify-content: center;
+}
+/*---------------------------------------------------------------------------*/
+
+
+
+/* ==== SIZING AND PLACING THE 2 MAIN SECTION ELEMENTS : ABOUT and WORK ==== */
+.about, .work {
+    width: 80%;
+    margin: 2rem 0 3rem 0;
+    padding: 1.5rem 0 1.5rem 0;
+    position: relative;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    justify-content: center;
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* ===== ORGANIZING THE ABOUT CONTENT (description, background and contact) ===== */
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;   
+}
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* ======================== Styling all the text ===================== */
+.greeting {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+}
+h1 {
+    font-size: 2.8rem;
+}
+h2 {
+    font-size: 2.6rem;
+}
+p {
+    font-size: 2rem;
+}
+.highlight {
+    color: var(--text-highlight-color);
+}
+.footer-text {
+    font-size: 1.6rem;
+}
+/*---------------------------------------------------------------------------*/
+
+/* ============== SHINING TEXT ANIMATION ON THE GREETING ================ */
+.greeting {
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--text-color), #f1d4e1, var(--text-color));
+    background-repeat: no-repeat;
+    background-size: 80%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255,255,255,0.01);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+    100% {
+        background-position: 500%;
+    }
+}
+/*---------------------------------------------------------------------------*/
+/* ============== WAVING TEXT ANIMATION ON THE GREETING ================ */
+
+
+
+/*---------------------------------------------------------------------------*/
+
+/* === PLACING BUTTONS LINKING TO RESUME AND SOCIAL NETWORKS (and setting common properties)  === */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    justify-items: center;
+    font-size: 2.3rem;
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* === STYLING LINKS AS BUTTONS  === */
+
+/* Resume button */
+#resume {
+    padding: 1rem 2rem;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    border: 1px solid var(--button-border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px var(--button-boxshadow-color) ;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+#resume:hover {
+    background: var(--button-hover-bg-color);
+}
+#resume:active {
+    background: var(--button-active-bg-color);
+    transform: scale(0.95);
+}
+
+
+/* Social network buttons */
+.linkedin, .mail, .mastodon {
+    padding: 1rem 2rem;
+    color: var(--button-text-color);
+    background: var(--button-bg-color);
+    border: 1px solid var(--button-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--button-boxshadow-color);
+    transition: background 0.3s ease;
+}
+.linkedin:hover, .mail:hover, .mastodon:hover {
+    background: var(--button-hover-bg-color);
+}
+.linkedin:active, .mail:active, .mastodon:active {
+    background: var(--button-active-bg-color);
+    transform: scale(0.95);
+}
+
+/* Styling the "Chateau de Verre" button */
+#chateau-de-verre {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: var(--button-text-color);
+    font-weight: 500;
+    border-radius: 10px;
+    background: var(--button-bg-color);
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 6px var(--button-boxshadow-color);
+}
+#chateau-de-verre:hover {
+    background: var(--button-hover-bg-color);
+}
+#chateau-de-verre:active {
+    background: var(--button-active-bg-color);
+    transform: scale(0.95);
+}
+
+/*  Styling the efp url */
+#efp {
+    text-decoration: none;
+    color: var(--button-text-color);
+}
+#efp:hover {
+    color: var(--text-highlight-color);
+}
+/*---------------------------------------------------------------------------*/
+
+
+/* ========================= PLACING THE IMAGES ========================  */
+.chateau-de-verre-images {
+    margin: auto;
+    max-width: max-content;
+    display: flex;
+    flex-flow: row wrap;
+    /*flex-direction: row;*/
+    gap: 5rem;
+    justify-content: center;
+    
+
+}
+/* Setting the size and style properties */
+img {
+    max-width: max(250px, 25vw);
+    border-radius: 5%;
+}
+/*----------------------------------------------------------------*/
+
+
+/* ========================= FOOTER ========================== */
+footer {
+    border-top: 1px solid white;
+    width: 100%;
+    /*height*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: 350;
+    font-style: italic;
+    /*align-items: center;*/
+    padding: 1rem 0 1rem 0;
+}
+/*----------------------------------------------------------------*/
+
+/* =========== MEDIA QUERIES (RESPONSIVE AND DEVICES ========== */
