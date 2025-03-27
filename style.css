@@ -19,6 +19,7 @@ html {
     --heading-background-color: rgba(255, 255, 255, 0.25);
    --text-color: #0a044f;
    --text-highlight-color: rgba(219, 14, 219, 0.75);
+   --button-highlight-color: rgba(219, 14, 219, 0.75);
    --button-text-color: rgba(127, 0, 127, 0.95);
    --button-bg-color: rgba(255, 255, 255, 0.2);
    --button-hover-bg-color: rgba(255, 255, 255, 0.4);
@@ -52,6 +53,8 @@ html {
 li a {
     color: inherit;
     text-decoration: none;
+    border-radius: 7px;
+    padding: 0.75px;
 }
 /* Styling the navbar interactions */
 .navbar li {
@@ -62,7 +65,6 @@ li a {
     display: inline-block;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    /*border: 1px solid transparent;*/
     transition: background 0.3s ease;
 }
 .navbar li:hover {
@@ -96,17 +98,26 @@ body {
 /* ============ SETTING THE SIZE OF THE SECTIONS ELEMENTS : SWP ========== */
 section {
     min-height: 100vh;
-    scroll-margin-top: 3rem;
+    scroll-margin-top: 6rem;
+    display: flex;
+    gap: 6rem;
     
 }
+
+/*---------------------------------------------------------------------------*/
+
+/* === Setting the home section === */
+#home {
+    margin-top: 6rem;
+}
+
 /*---------------------------------------------------------------------------*/
 
 
 /* === Placing and styling the WELCOME MESSAGE (section element)  === */
 .welcome-container {
+    height: 90vh;
     width: 80%;
-    /*margin: 2rem 0 3rem 0;*/
-    /*margin-top: 10rem;*/
     padding: 1.5rem;
     position: relative;
     left: 10%;
@@ -119,6 +130,7 @@ section {
     align-items: center;
     gap: 5rem;
     justify-content: center;
+    text-align: center;
 }
 /*---------------------------------------------------------------------------*/
 
@@ -136,6 +148,8 @@ section {
     align-items: center;
     gap: 4rem;
     justify-content: center;
+    text-align: justify;
+
 }
 /*---------------------------------------------------------------------------*/
 
@@ -148,11 +162,14 @@ section {
     gap: 2rem;
     justify-content: center;   
 }
-.background {
+.personal-background {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  
+    gap: 2rem;
+    justify-content: center; 
+
+
 }
 .contact {
     display: flex;
@@ -160,6 +177,7 @@ section {
     align-items: center;
     gap: 2rem;
     justify-content: center;
+    text-align: left;
 }
 /*---------------------------------------------------------------------------*/
 
@@ -174,16 +192,16 @@ h1 {
     font-size: 2.8rem;
 }
 h2 {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
 }
 p {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 .highlight {
     color: var(--text-highlight-color);
 }
 .footer-text {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 /*---------------------------------------------------------------------------*/
 
@@ -193,6 +211,9 @@ p {
     background: linear-gradient(90deg, var(--text-color), #f1d4e1, var(--text-color));
     background-repeat: no-repeat;
     background-size: 80%;
+    /* !!!!! I know there's a problem notified by VS Code : !!!!!
+    -- Also define the standard property 'background-clip' for compatibiblity --
+    But the animation works so I went passed that*/
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255,255,255,0.01);
     animation: animate 4s linear infinite;
@@ -206,8 +227,40 @@ p {
     }
 }
 /*---------------------------------------------------------------------------*/
-/* ============== WAVING TEXT ANIMATION ON THE GREETING ================ */
 
+
+/* ============== WAVING TEXT ANIMATION ON THE GREETING ================ */
+.wave-text span {
+    display: inline-block;
+    animation: wave 2.5s ease-in-out infinite;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(5) {
+    animation-delay: 0.6s;
+}
+.wave-animation span:nth-child(6) {
+    animation-delay: 0.8s;
+}
+.wave-animation span:nth-child(7) {
+    animation-delay: 1.0s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.8px);
+    }
+}
 
 
 /*---------------------------------------------------------------------------*/
@@ -223,7 +276,7 @@ p {
 /*---------------------------------------------------------------------------*/
 
 
-/* === STYLING LINKS AS BUTTONS  === */
+/* ============= STYLING LINKS AS BUTTONS  ============= */
 
 /* Resume button */
 #resume {
@@ -275,6 +328,7 @@ p {
     background: var(--button-bg-color);
     transition: background 0.3s ease;
     box-shadow: 0 4px 6px var(--button-boxshadow-color);
+
 }
 #chateau-de-verre:hover {
     background: var(--button-hover-bg-color);
@@ -288,11 +342,39 @@ p {
 #efp {
     text-decoration: none;
     color: var(--button-text-color);
+    border-radius: 7px;
+    padding: 0.75px;
 }
 #efp:hover {
-    color: var(--text-highlight-color);
+    color: var(--button-highlight-color);
 }
 /*---------------------------------------------------------------------------*/
+
+/* ======== PULSE ANIMATION ON EMAIL BUTTON (accessibility with tab) ======== */
+.animation-pulse {
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+/*---------------------------------------------------------------------------*/
+
+/* ===== FOCUS INTERACTION ON BUTTONS (accessibility : navigation with tab)  ===== */
+.navbar li a:focus-visible,         #resume:focus-visible, .linkedin:focus-visible, .mail:focus-visible, .mastodon:focus-visible, #chateau-de-verre:focus-visible, #efp:focus-visible {
+    outline: none;
+    border: 1.5px solid var(--button-highlight-color);
+}
+
+/*---------------------------------------------------------------------------*/
+
 
 
 /* ========================= PLACING THE IMAGES ========================  */
@@ -301,7 +383,6 @@ p {
     max-width: max-content;
     display: flex;
     flex-flow: row wrap;
-    /*flex-direction: row;*/
     gap: 5rem;
     justify-content: center;
     
@@ -319,15 +400,149 @@ img {
 footer {
     border-top: 1px solid white;
     width: 100%;
-    /*height*/
     display: flex;
     flex-direction: row;
     justify-content: center;
     font-weight: 350;
     font-style: italic;
-    /*align-items: center;*/
+    align-items: center;
     padding: 1rem 0 1rem 0;
+    text-align: center;
+    
 }
-/*----------------------------------------------------------------*/
 
-/* =========== MEDIA QUERIES (RESPONSIVE AND DEVICES ========== */
+/*---------------------------------------------------------------*/
+
+
+/* ======================== MEDIA QUERIES ====================== */
+/* Reminder : 2rem <=> 20px */
+/* === Breakpoints for widths of devices : 
+Mobile portrait : max width : 600px // min height : 800px
+Mobile landscape : max width : 800px // min height : 600px
+Tablet portrait : min width : 600px // max width : 768px // min height : 900px
+Tablet landscape : min width : 768px // max width : 1024px // min height : 9
+Desktop (small) : min width : 1025px // max width : 1366px // max height : 1080px
+Desktop (large) : min width : 1367px // min height : 1080px 
+update : it's better to focus on the widths (more used for breakpoints than the height conditions)
+=== */
+
+/* Mobile*/
+@media (max-width: 600px) and (orientation: portrait) {
+
+    .about, .work {
+        text-align: justify;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+    #resume {
+        font-size: medium;
+    }
+    .chateau-de-verre-images {
+        flex-direction: column;
+    }
+    img {
+        max-width: max(400px, 40vw);
+    }
+    .linkedin, .mail, .mastodon {
+        font-size: 1.8rem;
+    }
+    #chateau-de-verre {
+        font-size: medium;
+    }
+    .navbar li a {
+        font-size: smaller;
+    }
+    }
+}
+@media (max-width: 800px) and (orientation: landscape) {
+    .welcome-container {
+        height: 80vh;
+    }
+    #resume {
+        font-size: medium;
+    }
+    .chateau-de-verre-images {
+        flex-direction: column;
+    }
+    img {
+        max-width: max(400px, 40vw);
+    }
+    .linkedin, .mail, .mastodon {
+        font-size: 1.8rem;
+    }
+    #chateau-de-verre {
+        font-size: medium;
+    }
+    .navbar li a {
+        font-size: smaller;
+    }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
+    .navbar li a {
+        font-size: medium;
+    }
+    img {
+       width: 100%;
+       height: auto;
+    }
+    #resume {
+        font-size: medium;
+    }
+    .linkedin, .mail, .mastodon {
+        font-size: 2rem;
+    }
+    #chateau-de-verre {
+        font-size: medium;
+    }
+    footer {
+        font-size: larger;
+    }
+  } 
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: landscape) {
+    .welcome-container {
+        height: 85vh;
+    }
+    .navbar li a {
+        font-size: medium;
+    }
+    #resume {
+        font-size: medium;
+    }
+    .linkedin, .mail, .mastodon {
+        font-size: 2rem;
+    }
+    #chateau-de-verre {
+        font-size: medium;
+    }
+    img {
+        max-width: max(450px, 45vw);
+        height: auto;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    #resume {
+        font-size: 1.8rem;
+    }
+    .navbar li a {
+        font-size: medium;
+    }
+    #chateau-de-verre {
+        font-size: 1.8rem;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .work {
+        text-align: justify;
+    }
+}
+
+
+
